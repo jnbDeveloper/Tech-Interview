@@ -14,17 +14,20 @@ interface InputFieldProps {
 }
 
 const Input = forwardRef<HTMLInputElement, InputFieldProps>(
-  ({
-    id,
-    type,
-    name,
-    value = "",
-    onChange,
-    label,
-    errorMessage,
-    fronticon,
-    placeholder,
-  }) => {
+  (
+    {
+      id,
+      type,
+      name,
+      value = "",
+      onChange,
+      label,
+      errorMessage,
+      fronticon,
+      placeholder,
+    },
+    ref
+  ) => {
     return (
       <div>
         <div className="mb-2 md:mb-3">
@@ -43,6 +46,7 @@ const Input = forwardRef<HTMLInputElement, InputFieldProps>(
               name={name}
               value={value}
               onChange={onChange}
+              ref={ref} 
               className={`w-full p-2 border rounded-md top-3`}
               placeholder={placeholder}
             />
@@ -72,5 +76,6 @@ const Input = forwardRef<HTMLInputElement, InputFieldProps>(
     );
   }
 );
+
 
 export default Input;

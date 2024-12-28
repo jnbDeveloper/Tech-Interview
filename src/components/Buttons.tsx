@@ -22,7 +22,7 @@ const Buttons: React.FC<ButtonsProps> = ({
 }) => {
   return (
     <div
-      className={`h-auto rounded-md ${
+      className={`h-auto rounded-md cursor-pointer ${
         fronticon ? "flex flex-row gap-3 space-x-5 border justify-center" : ""
       }`}
     >
