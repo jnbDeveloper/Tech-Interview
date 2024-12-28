@@ -7,8 +7,8 @@ interface ButtonsProps {
   textColor?: string;
   text: string;
   fronticon?: string;
-  textCenter?:boolean;
-  onClick?: ()=>void;
+  textCenter?: boolean;
+  onClick?: () => void;
 }
 
 const Buttons: React.FC<ButtonsProps> = ({
@@ -25,17 +25,19 @@ const Buttons: React.FC<ButtonsProps> = ({
       className={`h-auto rounded-md cursor-pointer ${
         fronticon ? "flex flex-row gap-3 space-x-5 border justify-center" : ""
       }`}
+      onClick={onClick} // Add the onClick event handler here
     >
       {fronticon && (
-        <div className=" relative pt-2 flex flex-col cursor-pointer w-6 ">
+        <div className="relative pt-2 flex flex-col cursor-pointer w-6">
           <Imagees alt="img" src={fronticon} />
         </div>
       )}
       <div
         className={`p-2 font-semibold rounded-md ${fontSize} ${
           bgcolor ? "" : "bg-orange-600"
-        } ${textColor} ${fontSize} ${fronticon ? "flex flex-col" : ""}
-        ${textCenter ? "text-center" : ""} ${onClick}`}
+        } ${textColor} ${fronticon ? "flex flex-col" : ""} ${
+          textCenter ? "text-center" : ""
+        }`}
       >
         {text}
       </div>

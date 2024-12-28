@@ -11,10 +11,17 @@ const Dashboard = () => {
     password: "",
   });
   const handleLogin = () => {
-    toast.success("Login Successful!", {
-      position: "top-right",
-      autoClose: 3000,
-    });
+    if (formData.email && formData.password) {
+      toast.success("Login Successful!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } else {
+      toast.error("Please fill out all fields!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -32,19 +39,19 @@ const Dashboard = () => {
         </h2>
         <div className=" gap-5 space-y-10">
           <Input
-            name="Email"
+            name="email"
             label="Email"
             type="text"
-            id=""
+            id="email"
             placeholder="Email"
             value={formData.email}
             onChange={handleInputChange}
           />
           <Input
-            name="Password"
+            name="password"
             label="Password"
-            type="text"
-            id=""
+            type="password"
+            id="password"
             placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
