@@ -1,12 +1,22 @@
 import Buttons from "@/components/Buttons";
 import Input from "@/components/Input";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
+const handleLogin = () => {
+  toast.success("Login Successful!", {
+    position: "top-right", 
+    autoClose: 3000,
+  });
+};
   return (
     <div className="h-screen w-screen">
       <div className="w-[40%] h-auto mx-auto my-auto max-h-[60%] pt-[2%] pb-[10%]">
-        <h2 className="text-black font-bold text-2xl text-center py-5">Login</h2>
+        <h2 className="text-black font-bold text-2xl text-center py-5">
+          Login
+        </h2>
         <div className=" gap-5 space-y-10">
           <Input name="Email" label="Email" type="" id="" placeholder="Email" />
           <Input
@@ -32,7 +42,9 @@ const Dashboard = () => {
             fontSize=""
             textColor="text-white"
             textCenter
+            onClick={handleLogin}
           />
+          <ToastContainer />
         </div>
         <div className="space-y-3 mt-3">
           <Buttons

@@ -8,6 +8,7 @@ interface ButtonsProps {
   text: string;
   fronticon?: string;
   textCenter?:boolean;
+  onClick?: ()=>void;
 }
 
 const Buttons: React.FC<ButtonsProps> = ({
@@ -17,6 +18,7 @@ const Buttons: React.FC<ButtonsProps> = ({
   text,
   fronticon,
   textCenter,
+  onClick,
 }) => {
   return (
     <div
@@ -33,7 +35,7 @@ const Buttons: React.FC<ButtonsProps> = ({
         className={`p-2 font-semibold rounded-md ${fontSize} ${
           bgcolor ? "" : "bg-orange-600"
         } ${textColor} ${fontSize} ${fronticon ? "flex flex-col" : ""}
-        ${textCenter ? "text-center" : ""}`}
+        ${textCenter ? "text-center" : ""} ${onClick}`}
       >
         {text}
       </div>
